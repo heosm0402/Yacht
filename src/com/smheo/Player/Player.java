@@ -19,6 +19,7 @@ public class Player {
     private int[] dicesArray = new int[5];
 
     private String diceNumberToSave;
+    private int[] savedDicesArray = new int[5];
 
     private void addToTotalScore(int score) {
         this.totalScore += score;
@@ -208,6 +209,17 @@ public class Player {
         Scanner sc = new Scanner(System.in);
         System.out.print("Dice number: ");
         this.diceNumberToSave = sc.nextLine();
+    }
+
+    private void showSavedDicesArray() {
+        int temp = 1;
+        for(int i = 0; i < this.savedDicesArray.length; i++) {
+            if (i != dicesArray.length-1) {
+                System.out.print("Dice" + (i + temp) + ": " + dicesArray[i] + " | ");
+            } else {
+                System.out.println("Dice" + (i + temp) + ": " + dicesArray[i] + " |");
+            }
+        }
     }
 
 }
