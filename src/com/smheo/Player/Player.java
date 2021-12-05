@@ -17,7 +17,7 @@ public class Player {
     private int littleStraight = 0;
     private int bigStraight = 0;
     private int yacht = 0;
-    private int[] dicesArray = new int[5];
+    private int[] dicesArray = {0, 0, 0, 0, 0};
 
     private String diceNumberToSave;
 
@@ -187,14 +187,15 @@ public class Player {
 
     private void rollDices() {
         for (int i = 0; i < dicesArray.length; i++) {
-            double randomValue = Math.random();
-            int intValue = (int) (randomValue * 6) + 1;
-            dicesArray[i] = intValue;
+            if (dicesArray[i] == 0) {
+                double randomValue = Math.random();
+                int intValue = (int) (randomValue * 6) + 1;
+                dicesArray[i] = intValue;
+            }
         }
     }
 
     private void showRolledDicesArray() {
-        int temp = 1;
         for (int i = 0; i < dicesArray.length; i++) {
             if (i == 0) {
                 System.out.print("| " + dicesArray[i] + " | ");
@@ -219,7 +220,7 @@ public class Player {
 
         for (int i = 0; i < this.dicesArray.length; i++) {
             if (Arrays.asList(diceNumberArray).contains(Integer.toString(i+1))) {
-                System.out.println(i+1);
+                continue;
             } else {
                 this.dicesArray[i] = 0;
             }
@@ -231,6 +232,8 @@ public class Player {
         this.showRolledDicesArray();
         this.chooseDices();
         this.saveDices();
+        this.showRolledDicesArray();
+        this.rollDices();
         this.showRolledDicesArray();
     }
 }
