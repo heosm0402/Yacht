@@ -187,4 +187,15 @@ public class Player {
             dicesArray[i] = intValue;
         }
     }
+
+    private void showRolledDicesArray() {
+        int temp = 1;
+        for (int i = 0; i < dicesArray.length; i++) {
+            if (i != dicesArray.length-1) {
+                System.out.print("Dice" + (i + temp) + ": " + dicesArray[i] + " | ");
+            } else {
+                System.out.println("Dice" + (i + temp) + ": " + dicesArray[i] + " |");
+            }
+        }
+    }
 }
