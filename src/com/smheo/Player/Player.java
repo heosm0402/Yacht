@@ -1,4 +1,6 @@
 package com.smheo.Player;
+import java.util.Scanner;
+
 
 public class Player {
     private int totalScore = 0;
@@ -15,6 +17,8 @@ public class Player {
     private int bigStraight = 0;
     private int yacht = 0;
     private int[] dicesArray = new int[5];
+
+    private String diceNumberToSave;
 
     private void addToTotalScore(int score) {
         this.totalScore += score;
@@ -198,4 +202,12 @@ public class Player {
             }
         }
     }
+
+    private void chooseDices() {
+        System.out.println("===== Please insert dice numbers of to save without space =====");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Dice number: ");
+        this.diceNumberToSave = sc.nextLine();
+    }
+
 }
