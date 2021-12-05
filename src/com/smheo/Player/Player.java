@@ -19,7 +19,6 @@ public class Player {
     private int[] dicesArray = new int[5];
 
     private String diceNumberToSave;
-    private int[] savedDicesArray = new int[5];
 
     private void addToTotalScore(int score) {
         this.totalScore += score;
@@ -205,30 +204,16 @@ public class Player {
     }
 
     private void chooseDices() {
-        System.out.println("===== Please insert dice numbers of to save without space =====");
+        System.out.println("===== Please insert dice numbers of to save with space =====");
         Scanner sc = new Scanner(System.in);
         System.out.print("Dice number: ");
         this.diceNumberToSave = sc.nextLine();
     }
 
-    private void showSavedDicesArray() {
-        int temp = 1;
-        for(int i = 0; i < this.savedDicesArray.length; i++) {
-            if (i != dicesArray.length-1) {
-                System.out.print("Dice" + (i + temp) + ": " + dicesArray[i] + " | ");
-            } else {
-                System.out.println("Dice" + (i + temp) + ": " + dicesArray[i] + " |");
-            }
-        }
-    }
-
-    // TODO: insert dice value into array 'savedDicesArray'
     private void saveDices() {
-        char[] diceNumberArray = this.diceNumberToSave.toCharArray();
+        String[] diceNumberArray = this.diceNumberToSave.split(" ");
 
-        for(int i = 0; i < diceNumberArray.length; i++) {
-            System.out.println(diceNumberArray[i]-1);
-            this.savedDicesArray[i] = dicesArray[diceNumberArray[i]-1];
+        for (int i = 0; i < diceNumberArray.length; i++) {
         }
     }
 
@@ -237,6 +222,5 @@ public class Player {
         this.showRolledDicesArray();
         this.chooseDices();
         this.saveDices();
-        this.showSavedDicesArray();
     }
 }
