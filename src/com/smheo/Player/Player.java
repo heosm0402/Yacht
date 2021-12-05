@@ -238,5 +238,5 @@ public class Player {
         this.chooseDices();
         this.saveDices();
         this.showSavedDicesArray();
-
+    }
 }
