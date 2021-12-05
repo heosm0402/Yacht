@@ -222,4 +222,21 @@ public class Player {
         }
     }
 
+    // TODO: insert dice value into array 'savedDicesArray'
+    private void saveDices() {
+        char[] diceNumberArray = this.diceNumberToSave.toCharArray();
+
+        for(int i = 0; i < diceNumberArray.length; i++) {
+            System.out.println(diceNumberArray[i]-1);
+            this.savedDicesArray[i] = dicesArray[diceNumberArray[i]-1];
+        }
+    }
+
+    public void takeTurn() {
+        this.rollDices();
+        this.showRolledDicesArray();
+        this.chooseDices();
+        this.saveDices();
+        this.showSavedDicesArray();
+
 }
