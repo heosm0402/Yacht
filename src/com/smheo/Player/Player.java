@@ -14,6 +14,7 @@ public class Player {
     private int littleStraight = 0;
     private int bigStraight = 0;
     private int yacht = 0;
+    private int[] dicesArray = new int[5];
 
     private void addToTotalScore(int score) {
         this.totalScore += score;
@@ -177,5 +178,13 @@ public class Player {
 
     public int getTotalScore() {
         return totalScore;
+    }
+
+    private void rollDices() {
+        for (int i = 0; i < dicesArray.length; i++) {
+            double randomValue = Math.random();
+            int intValue = (int) (randomValue * 6) + 1;
+            dicesArray[i] = intValue;
+        }
     }
 }
