@@ -1,4 +1,5 @@
 package com.smheo.Player;
+import java.util.Arrays;
 import java.util.Scanner;
 
 
@@ -195,10 +196,13 @@ public class Player {
     private void showRolledDicesArray() {
         int temp = 1;
         for (int i = 0; i < dicesArray.length; i++) {
-            if (i != dicesArray.length-1) {
-                System.out.print("Dice" + (i + temp) + ": " + dicesArray[i] + " | ");
+            if (i == 0) {
+                System.out.print("| " + dicesArray[i] + " | ");
+            }
+            else if (i != dicesArray.length-1) {
+                System.out.print(dicesArray[i] + " | ");
             } else {
-                System.out.println("Dice" + (i + temp) + ": " + dicesArray[i] + " |");
+                System.out.println(dicesArray[i] + " |");
             }
         }
     }
@@ -213,7 +217,12 @@ public class Player {
     private void saveDices() {
         String[] diceNumberArray = this.diceNumberToSave.split(" ");
 
-        for (int i = 0; i < diceNumberArray.length; i++) {
+        for (int i = 0; i < this.dicesArray.length; i++) {
+            if (Arrays.asList(diceNumberArray).contains(Integer.toString(i+1))) {
+                System.out.println(i+1);
+            } else {
+                this.dicesArray[i] = 0;
+            }
         }
     }
 
@@ -222,5 +231,6 @@ public class Player {
         this.showRolledDicesArray();
         this.chooseDices();
         this.saveDices();
+        this.showRolledDicesArray();
     }
 }
