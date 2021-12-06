@@ -8,10 +8,34 @@ public class NewPlayer {
     private int[] dicesArray = {0, 0, 0, 0, 0};
     private int rollDiceCount = 0;
     private String diceNumberToSave;
+    private String rank;
 
+    public int[] getDicesArray() {
+        return dicesArray;
+    }
+
+    public String getRank() {
+        return rank;
+    }
+
+    public void setRank(String rank) {
+        this.rank = rank;
+    }
+
+    public String getDiceNumberToSave() {
+        return diceNumberToSave;
+    }
+
+    public void setDiceNumberToSave(String diceNumberToSave) {
+        this.diceNumberToSave = diceNumberToSave;
+    }
 
     public int getRollDiceCount() {
         return rollDiceCount;
+    }
+
+    public void setRollDiceCount(int rollDiceCount) {
+        this.rollDiceCount = rollDiceCount;
     }
 
     private void addRollDiceCount() {
@@ -27,14 +51,14 @@ public class NewPlayer {
     }
 
     public void turn() {
-        while (rollDiceCount < 3){
-            System.out.println("[GAME INFO] PLAYER" + this.playerNumber + " TURN ROUND" + (this.rollDiceCount+1));
+        while (getRollDiceCount() < 3){
+            System.out.println("[GAME INFO] PLAYER" + getPlayerNumber() + " TURN ROUND" + (getPlayerNumber()+1));
             rollDice();
-            if (rollDiceCount <= 2) {
+            if (getRollDiceCount() <= 2) {
                 showDicesArray();
                 if (chooseGoOrStop() == 2) {
                     selectRank();
-                    this.rollDiceCount = 0;
+                    setRollDiceCount(0);
                     return;
                 }
                 chooseDiceNumberToSave();
@@ -60,14 +84,23 @@ public class NewPlayer {
         int choice;
         do {
             Scanner sc = new Scanner(System.in);
-            System.out.print("[GAME INFO] Choose Go(1) or Stop(2): ");
+            System.out.print("[SELECT] Go(1) or Stop(2): ");
             choice = sc.nextInt();
         } while (!(choice == 1 || choice == 2));
         return choice;
     }
 
     private void selectRank() {
-        System.out.println("select rank");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("[GAME INFO] Rank list");
+        System.out.println("---------------------------------------------------------------------------------");
+        System.out.println("| ONES(1) | TWOS(2) | THREES(3) | FOURS(4) | FIVES(5) | SIXES(6) | CHOICE(C)    |");
+        System.out.println("---------------------------------------------------------------------------------");
+        System.out.println("| 4ofAKind(FC) | FullHOUSE(FH) | SmallStraight(SS) | BigStraight(BS) | Yacht(Y) |");
+        System.out.println("---------------------------------------------------------------------------------");
+        System.out.print("[SELECT] Rank: ");
+        setRank(sc.nextLine());
+
     }
 
     private void showDicesArray() {
@@ -76,10 +109,10 @@ public class NewPlayer {
 
     private void chooseDiceNumberToSave() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("[GAME INFO] Choose dice index to Save (1~5): ");
-        this.diceNumberToSave = sc.nextLine();
+        System.out.print("[SELECT] Dice index to Save (1~5, with space): ");
+        setDiceNumberToSave(sc.nextLine());
 
-        String[] diceNumberArray = this.diceNumberToSave.split(" ");
+        String[] diceNumberArray = getDiceNumberToSave().split(" ");
 
         for (int i = 0; i < this.dicesArray.length; i++) {
             if (Arrays.asList(diceNumberArray).contains(Integer.toString(i+1))) {
