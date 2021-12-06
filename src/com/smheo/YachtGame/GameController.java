@@ -33,11 +33,16 @@ public class GameController {
         }
     }
 
-    private void setScore(NewPlayer p1) {
+    private void setScore(NewPlayer p) {
 
     }
 
-    private int getTotalScore(NewPlayer p1) {
+    private int getTotalScore(NewPlayer p) {
+
+        return 0;
+    }
+
+    private int getSubTotal(NewPlayer player) {
 
         return 0;
     }
