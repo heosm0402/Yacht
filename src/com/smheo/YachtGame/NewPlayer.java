@@ -1,5 +1,6 @@
 package com.smheo.YachtGame;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class NewPlayer {
@@ -37,12 +38,13 @@ public class NewPlayer {
         while (rollDiceCount < 3){
             System.out.println("[GAME INFO] PLAYER" + this.playerNumber + " TURN ROUND" + (this.rollDiceCount+1));
             rollDice();
-            int result = chooseGoOrStop();
-            if (result == 2) {
+            showDicesArray();
+            if (chooseGoOrStop() == 2) {
                 selectRank();
                 this.rollDiceCount = 0;
                 return;
             }
+            chooseDiceNumberToSave()
         }
         selectRank();
     }
@@ -71,4 +73,10 @@ public class NewPlayer {
     private void selectRank() {
         System.out.println("select rank");
     }
+
+    private void showDicesArray() {
+        System.out.println("Dice Array: " + Arrays.toString(dicesArray));
+    }
+
+
 }
