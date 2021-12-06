@@ -39,12 +39,12 @@ public class NewPlayer {
             rollDice();
             int result = chooseGoOrStop();
             if (result == 2) {
-                selectPedigree();
+                selectRank();
                 this.rollDiceCount = 0;
                 return;
             }
         }
-        selectPedigree();
+        selectRank();
     }
 
     private void rollDice() {
@@ -68,7 +68,7 @@ public class NewPlayer {
         return choice;
     }
 
-    private void selectPedigree() {
-        System.out.println("select Pedigree");
+    private void selectRank() {
+        System.out.println("select rank");
     }
 }
