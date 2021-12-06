@@ -8,6 +8,7 @@ public class NewPlayer {
     private int totalScore = 0;
     private int[] dicesArray = {0, 0, 0, 0, 0};
     private int rollDiceCount = 0;
+    private String diceNumberToSave;
 
 
     public int getRollDiceCount() {
@@ -38,15 +39,19 @@ public class NewPlayer {
         while (rollDiceCount < 3){
             System.out.println("[GAME INFO] PLAYER" + this.playerNumber + " TURN ROUND" + (this.rollDiceCount+1));
             rollDice();
-            showDicesArray();
-            if (chooseGoOrStop() == 2) {
-                selectRank();
-                this.rollDiceCount = 0;
-                return;
+            if (rollDiceCount <= 2) {
+                showDicesArray();
+                if (chooseGoOrStop() == 2) {
+                    selectRank();
+                    this.rollDiceCount = 0;
+                    return;
+                }
+                chooseDiceNumberToSave();
             }
-            chooseDiceNumberToSave()
         }
+        showDicesArray();
         selectRank();
+        this.rollDiceCount = 0;
     }
 
     private void rollDice() {
@@ -64,7 +69,7 @@ public class NewPlayer {
         int choice;
         do {
             Scanner sc = new Scanner(System.in);
-            System.out.println("[GAME INFO] Choose Go(1) or Stop(2): ");
+            System.out.print("[GAME INFO] Choose Go(1) or Stop(2): ");
             choice = sc.nextInt();
         } while (!(choice == 1 || choice == 2));
         return choice;
@@ -78,5 +83,19 @@ public class NewPlayer {
         System.out.println("Dice Array: " + Arrays.toString(dicesArray));
     }
 
+    private void chooseDiceNumberToSave() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("[GAME INFO] Choose dice index to Save (1~5): ");
+        this.diceNumberToSave = sc.nextLine();
 
+        String[] diceNumberArray = this.diceNumberToSave.split(" ");
+
+        for (int i = 0; i < this.dicesArray.length; i++) {
+            if (Arrays.asList(diceNumberArray).contains(Integer.toString(i+1))) {
+                continue;
+            } else {
+                this.dicesArray[i] = 0;
+            }
+        }
+    }
 }
