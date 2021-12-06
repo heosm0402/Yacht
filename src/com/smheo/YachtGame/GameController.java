@@ -18,10 +18,19 @@ public class GameController {
             System.out.println("[GAME INFO] ROUND " + this.round);
             p1.turn();
             p2.turn();
-            System.out.println("[GAME INFO] TOTAL SCORE P1:" + p1.getTotalScore() +
-                    " | P2:" + p2.getTotalScore());
+            System.out.println("[GAME INFO] TOTAL SCORE P1:" + getTotalScore(p1) +
+                    " | P2:" + getTotalScore(p2));
             System.out.println("==================================================");
             this.round += 1;
         }
+    }
+
+    private void setScore(NewPlayer p1) {
+
+    }
+
+    private int getTotalScore(NewPlayer p1) {
+
+        return 0;
     }
 }
