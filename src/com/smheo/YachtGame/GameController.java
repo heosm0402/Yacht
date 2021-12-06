@@ -1,5 +1,6 @@
 package com.smheo.YachtGame;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,7 +18,14 @@ public class GameController {
         while (this.round < 12) {
             System.out.println("[GAME INFO] ROUND " + this.round);
             p1.turn();
+            System.out.println(p1.getRank());
+            System.out.println(Arrays.toString(p1.getDicesArray()));
+            // TODO: call setScore()
             p2.turn();
+            System.out.println(p2.getRank());
+            System.out.println(Arrays.toString(p2.getDicesArray()));
+            // TODO: call setScore()
+
             System.out.println("[GAME INFO] TOTAL SCORE P1:" + getTotalScore(p1) +
                     " | P2:" + getTotalScore(p2));
             System.out.println("==================================================");
