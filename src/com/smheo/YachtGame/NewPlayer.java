@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class NewPlayer {
     private int playerNumber = 0;
-    private int totalScore = 0;
     private int[] dicesArray = {0, 0, 0, 0, 0};
     private int rollDiceCount = 0;
     private String diceNumberToSave;
@@ -15,7 +14,7 @@ public class NewPlayer {
         return rollDiceCount;
     }
 
-    public void addRollDiceCount() {
+    private void addRollDiceCount() {
         this.rollDiceCount++;
     }
 
@@ -25,14 +24,6 @@ public class NewPlayer {
 
     public void setPlayerNumber(int playerNumber) {
         this.playerNumber = playerNumber;
-    }
-
-    public int getTotalScore() {
-        return totalScore;
-    }
-
-    public void setTotalScore(int totalScore) {
-        this.totalScore = totalScore;
     }
 
     public void turn() {
