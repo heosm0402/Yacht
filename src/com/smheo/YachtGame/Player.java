@@ -1,4 +1,4 @@
-package com.smheo.Player;
+package com.smheo.YachtGame;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -212,6 +212,8 @@ public class Player {
         System.out.println("===== Please insert dice numbers of to save with space =====");
         Scanner sc = new Scanner(System.in);
         System.out.print("Dice number: ");
+
+        sc.close();
         this.diceNumberToSave = sc.nextLine();
     }
 
@@ -232,8 +234,5 @@ public class Player {
         this.showRolledDicesArray();
         this.chooseDices();
         this.saveDices();
-        this.showRolledDicesArray();
-        this.rollDices();
-        this.showRolledDicesArray();
     }
 }
