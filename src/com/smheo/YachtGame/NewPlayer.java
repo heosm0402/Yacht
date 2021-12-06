@@ -1,5 +1,7 @@
 package com.smheo.YachtGame;
 
+import java.util.Scanner;
+
 public class NewPlayer {
     private int playerNumber = 0;
     private int totalScore = 0;
@@ -32,11 +34,17 @@ public class NewPlayer {
     }
 
     public void turn() {
-        while (rollDiceCount <3){
-            System.out.println("[GAME INFO] PLAYER " + this.playerNumber + " TURN");
+        while (rollDiceCount < 3){
+            System.out.println("[GAME INFO] PLAYER" + this.playerNumber + " TURN ROUND" + (this.rollDiceCount+1));
             rollDice();
-            nextStep = chooseNextStep();
+            int result = chooseGoOrStop();
+            if (result == 2) {
+                selectPedigree();
+                this.rollDiceCount = 0;
+                return;
+            }
         }
+        selectPedigree();
     }
 
     private void rollDice() {
@@ -48,5 +56,19 @@ public class NewPlayer {
                 dicesArray[i] = intValue;
             }
         }
+    }
+
+    private int chooseGoOrStop() {
+        int choice;
+        do {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("[GAME INFO] Choose Go(1) or Stop(2): ");
+            choice = sc.nextInt();
+        } while (!(choice == 1 || choice == 2));
+        return choice;
+    }
+
+    private void selectPedigree() {
+        System.out.println("select Pedigree");
     }
 }
