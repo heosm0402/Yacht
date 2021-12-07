@@ -14,12 +14,14 @@ public class GameController {
         p1.setPlayerNumber(1);
         NewPlayer p2 = new NewPlayer();
         p2.setPlayerNumber(2);
+        ScoreCalculator scoreCalculator = new ScoreCalculator();
 
         while (this.round < 12) {
             System.out.println("[GAME INFO] ROUND " + this.round);
             p1.turn();
             System.out.println(p1.getRank());
             System.out.println(Arrays.toString(p1.getDicesArray()));
+            scoreCalculator.calculateScore(p1.getRank(), p1.getDicesArray());
             // TODO: call setScore()
             p2.turn();
             System.out.println(p2.getRank());
@@ -45,5 +47,9 @@ public class GameController {
     private int getSubTotal(NewPlayer player) {
 
         return 0;
+    }
+
+    private void showRoundSummary() {
+
     }
 }
