@@ -1,10 +1,9 @@
 package com.smheo.YachtGame;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ScoreController {
+public class ScoreCalculator {
     private String rank;
     private int score;
 
