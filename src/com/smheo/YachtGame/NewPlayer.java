@@ -66,7 +66,7 @@ public class NewPlayer {
         }
         showDicesArray();
         selectRank();
-        this.rollDiceCount = 0;
+        setRollDiceCount(0);
     }
 
     private void rollDice() {
