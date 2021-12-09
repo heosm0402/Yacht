@@ -122,9 +122,9 @@ public class ScoreCalculator {
         for (int key : this.diceArray) {
             Integer numOccurrence = valueCountMap.get(Integer.toString(key));
             if (numOccurrence == null) {
-                valueCountMap.put(Integer.toString(key), key);
+                valueCountMap.put(Integer.toString(key), 1);
             } else {
-                valueCountMap.put(Integer.toString(key), numOccurrence++);
+                valueCountMap.put(Integer.toString(key), (numOccurrence +1));
             }
         }
         return valueCountMap;
