@@ -8,7 +8,7 @@ public class GameController {
     private int round = 0;
     private Map<String, Integer> score_p1 = new HashMap<>();
     private Map<String, Integer> score_p2 = new HashMap<>();
-
+    private int roundScore = 0;
     public void run() {
         NewPlayer p1 = new NewPlayer();
         p1.setPlayerNumber(1);
@@ -19,14 +19,12 @@ public class GameController {
         while (this.round < 12) {
             System.out.println("[GAME INFO] ROUND " + this.round);
             p1.turn();
-            System.out.println(p1.getRank());
-            System.out.println(Arrays.toString(p1.getDicesArray()));
-            scoreCalculator.calculateScore(p1.getRank(), p1.getDicesArray());
-            // TODO: call setScore()
+            roundScore = scoreCalculator.calculateScore(p1.getRank(), p1.getDicesArray());
+            System.out.println("score:" + roundScore);
+
             p2.turn();
-            System.out.println(p2.getRank());
-            System.out.println(Arrays.toString(p2.getDicesArray()));
-            // TODO: call setScore()
+            roundScore = scoreCalculator.calculateScore(p2.getRank(), p2.getDicesArray());
+            System.out.println("score:" + roundScore);
 
             System.out.println("[GAME INFO] TOTAL SCORE P1:" + getTotalScore(p1) +
                     " | P2:" + getTotalScore(p2));
