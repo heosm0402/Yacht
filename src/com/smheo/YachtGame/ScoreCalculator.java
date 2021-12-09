@@ -103,9 +103,10 @@ public class ScoreCalculator {
         Map<String, Integer> valueCountMap = countDiceValues();
         System.out.println(valueCountMap);
         int calculatedScore = 0;
+        Integer[] toCheckValue = {4};
 
-        for (String strKey : valueCountMap.keySet()) {
-            if (valueCountMap.get(strKey) == 4) {
+        for (String strKey: valueCountMap.keySet()) {
+            if (Arrays.asList(toCheckValue).contains(valueCountMap.get(strKey))) {
                 calculatedScore = Arrays.stream(this.diceArray).sum();
             }
         }
