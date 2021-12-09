@@ -61,7 +61,7 @@ public class ScoreCalculator {
             case "C":
                 setScore(calcChoice());
                 break;
-            case "FC":
+            case "FK":
                 setScore(calc4OfAKind());
                 break;
             case "FH":

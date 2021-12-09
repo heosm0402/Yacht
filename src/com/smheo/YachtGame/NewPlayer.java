@@ -96,7 +96,7 @@ public class NewPlayer {
         System.out.println("---------------------------------------------------------------------------------");
         System.out.println("| ONES(1) | TWOS(2) | THREES(3) | FOURS(4) | FIVES(5) | SIXES(6) | CHOICE(C)    |");
         System.out.println("---------------------------------------------------------------------------------");
-        System.out.println("| 4ofAKind(FC) | FullHOUSE(FH) | SmallStraight(SS) | BigStraight(BS) | Yacht(Y) |");
+        System.out.println("| 4ofAKind(FK) | FullHOUSE(FH) | SmallStraight(SS) | BigStraight(BS) | Yacht(Y) |");
         System.out.println("---------------------------------------------------------------------------------");
         System.out.print("[SELECT] Rank: ");
         setRank(sc.nextLine());
