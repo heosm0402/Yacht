@@ -20,11 +20,11 @@ public class GameController {
             System.out.println("[GAME INFO] ROUND " + this.round);
             p1.turn();
             roundScore = scoreCalculator.calculateScore(p1.getRank(), p1.getDicesArray());
-            System.out.println("score:" + roundScore);
+            System.out.println("score: " + roundScore);
 
             p2.turn();
             roundScore = scoreCalculator.calculateScore(p2.getRank(), p2.getDicesArray());
-            System.out.println("score:" + roundScore);
+            System.out.println("score: " + roundScore);
 
             System.out.println("[GAME INFO] TOTAL SCORE P1:" + getTotalScore(p1) +
                     " | P2:" + getTotalScore(p2));
