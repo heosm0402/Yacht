@@ -7,6 +7,7 @@ import java.util.Map;
 public class ScoreCalculator {
     private String rank;
     private int score;
+    private int[] diceArray;
 
     public int[] getDiceArray() {
         return diceArray;
@@ -15,8 +16,6 @@ public class ScoreCalculator {
     public void setDiceArray(int[] diceArray) {
         this.diceArray = diceArray;
     }
-
-    private int[] diceArray;
 
     public int getScore() {
         return score;
