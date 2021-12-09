@@ -102,7 +102,15 @@ public class ScoreCalculator {
 
     private int calc4OfAKind() {
         Map<String, Integer> valueCountMap = countDiceValues();
+        System.out.println(valueCountMap);
+        int calculatedScore = 0;
 
+        for (String strKey : valueCountMap.keySet()) {
+            if (valueCountMap.get(strKey) == 4) {
+                calculatedScore = Arrays.stream(this.diceArray).sum();
+            }
+        }
+        return calculatedScore;
     }
 
     private int calcFullHouse() {
