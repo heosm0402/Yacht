@@ -139,7 +139,7 @@ public class ScoreCalculator {
     }
 
     private int calcYacht() {
-        for (int i=0; i < this.diceArray.length; i++) {
+        for (int i=0; i < (this.diceArray.length-1); i++) {
             if (this.diceArray[i] != this.diceArray[i+1] ) {
                 return 0;
             }
