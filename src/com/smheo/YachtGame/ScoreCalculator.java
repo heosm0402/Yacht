@@ -41,28 +41,40 @@ public class ScoreCalculator {
         switch (rank) {
             case "1":
                 setScore(calcCount(1));
+                break;
             case "2":
                 setScore(calcCount(2));
+                break;
             case "3":
                 setScore(calcCount(3));
+                break;
             case "4":
                 setScore(calcCount(4));
+                break;
             case "5":
                 setScore(calcCount(5));
+                break;
             case "6":
                 setScore(calcCount(6));
+                break;
             case "C":
                 setScore(calcChoice());
+                break;
             case "FC":
                 setScore(calc4OfAKind());
+                break;
             case "FH":
                 setScore(calcFullHouse());
+                break;
             case "SS":
                 setScore(calcSmallStraight());
+                break;
             case "BS":
                 setScore(calcBigStraight());
+                break;
             case "Y":
                 setScore(calcYacht());
+                break;
         }
 
         return this.score;
