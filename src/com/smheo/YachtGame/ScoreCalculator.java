@@ -141,6 +141,8 @@ public class ScoreCalculator {
     private Map<String, Integer> countDiceValues() {
         Map<String, Integer> valueCountMap = new HashMap<>();
         for (int key : this.diceArray) {
+
+            // TODO: replace with method 'merge'
             Integer numOccurrence = valueCountMap.get(Integer.toString(key));
             if (numOccurrence == null) {
                 valueCountMap.put(Integer.toString(key), 1);
