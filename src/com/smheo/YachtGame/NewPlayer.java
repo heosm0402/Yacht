@@ -14,6 +14,8 @@ public class NewPlayer {
         return dicesArray;
     }
 
+    public void setDicesArray(int[] dicesArray) {this.dicesArray = dicesArray;}
+
     public String getRank() {
         return rank;
     }
@@ -51,6 +53,7 @@ public class NewPlayer {
     }
 
     public void turn() {
+        setDicesArray(new int[] {0, 0, 0, 0, 0});
         while (getRollDiceCount() < 3){
             System.out.println("[GAME INFO] PLAYER" + getPlayerNumber() + " TURN ROUND" + (getPlayerNumber()+1));
             rollDice();
