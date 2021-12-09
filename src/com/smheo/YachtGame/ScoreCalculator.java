@@ -115,7 +115,16 @@ public class ScoreCalculator {
 
     private int calcFullHouse() {
         Map<String, Integer> valueCountMap = countDiceValues();
+        int calculatedScore = 0;
+        Integer[] toCheckValue = {2, 3};
 
+
+        for (String strKey : valueCountMap.keySet()) {
+            if (!(Arrays.asList(toCheckValue).contains(valueCountMap.get(strKey)))) {
+                return calculatedScore;
+            }
+        }
+        return Arrays.stream(this.diceArray).sum();
     }
 
     private int calcSmallStraight() {
