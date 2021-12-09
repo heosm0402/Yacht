@@ -128,14 +128,36 @@ public class ScoreCalculator {
     }
 
     private int calcSmallStraight() {
-
-        return 15;
+        Integer[] straight = {1, 2, 3, 4};
+        for (int i=0; i < 3; i++) {
+            Integer[] castedArray = Arrays.stream(this.diceArray).sorted().boxed().toArray(Integer[]::new);
+            if (isContainsAll(castedArray, straight)) {
+                return 15;
+            }
+            for (int j = 0; j < straight.length; j++) {
+                straight[j] += 1;
+            }
+        }
+        return 0;
     }
 
     private int calcBigStraight() {
+        Integer[] straight = {1, 2, 3, 4, 5};
+        for (int i=0; i < 2; i++) {
+            Integer[] castedArray = Arrays.stream(this.diceArray).sorted().boxed().toArray(Integer[]::new);
+            if (isContainsAll(castedArray, straight)) {
+                return 30;
+            }
+            for (int j = 0; j < straight.length; j++) {
+                straight[j] += 1;
+            }
+        }
+        return 0;
 
-        return 30;
+    }
 
+    private boolean isContainsAll(Integer[] outer, Integer[] inner) {
+        return Arrays.asList(outer).containsAll(Arrays.asList(inner));
     }
 
     private int calcYacht() {
