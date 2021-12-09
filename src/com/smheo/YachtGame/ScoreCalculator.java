@@ -1,5 +1,6 @@
 package com.smheo.YachtGame;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -82,8 +83,8 @@ public class ScoreCalculator {
 
     private int calcCount(int target) {
         int calculatedScore = 0;
-        for (int i=0; i < this.diceArray.length; i++) {
-            if (this.diceArray[i] == target) {
+        for (int diceValue : this.diceArray) {
+            if (diceValue == target) {
                 calculatedScore += target;
             }
         }
@@ -92,8 +93,8 @@ public class ScoreCalculator {
 
     private int calcChoice() {
         int calculatedScore = 0;
-        for (int i=0; i < this.diceArray.length; i++) {
-            calculatedScore += diceArray[i];
+        for (int diceValue : this.diceArray) {
+            calculatedScore += diceValue;
         }
         return calculatedScore;
 
