@@ -1,6 +1,8 @@
 package com.smheo.YachtGame;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class NewPlayer {
@@ -9,6 +11,15 @@ public class NewPlayer {
     private int rollDiceCount = 0;
     private String diceNumberToSave;
     private String rank;
+    private Map<String, Integer> scoreTable = new HashMap<>();
+
+    public Map<String, Integer> getScoreTable() {
+        return scoreTable;
+    }
+
+    public void setScoreTable(Map<String, Integer> scoreTable) {
+        this.scoreTable = scoreTable;
+    }
 
     public int[] getDicesArray() {
         return dicesArray;

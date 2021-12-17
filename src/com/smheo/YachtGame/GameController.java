@@ -7,8 +7,6 @@ import java.util.Map;
 
 public class GameController {
     private int round = 0;
-    private Map<String, Integer> score_p1 = new HashMap<>();
-    private Map<String, Integer> score_p2 = new HashMap<>();
     private int roundScore = 0;
     public void run() {
         NewPlayer p1 = new NewPlayer();
@@ -36,23 +34,13 @@ public class GameController {
 
     private void setScore(NewPlayer p, int score) {
 
-        // TODO: Refactoring
-        if (p.getPlayerNumber() == 1) {
-            // TODO: change to while loop (while !hashmap.containsKey(rank))
-            if (!(this.score_p1.containsKey(p.getRank()))) {
-                score_p1.put(p.getRank(), score);
-                System.out.println("player " + p.getPlayerNumber() + " score: " + roundScore);
-            } else {
-                // TODO: rank reselect logic
-                System.out.println("player " + p.getPlayerNumber() + " already have rank" + p.getRank());
-            }
+        // TODO: change to while loop (while !hashmap.containsKey(rank))
+        if (!(p.getScoreTable().containsKey(p.getRank()))) {
+            p.getScoreTable().put(p.getRank(), score);
+            System.out.println("player " + p.getPlayerNumber() + " score: " + roundScore);
         } else {
-            if(!(this.score_p2.containsKey(p.getRank()))) {
-                score_p2.put(p.getRank(), score);
-                System.out.println("player " + p.getPlayerNumber() + " score: " + roundScore);
-            } else {
-                System.out.println("player " + p.getPlayerNumber() + " already have rank" + p.getRank());
-            }
+            // TODO: rank reselect logic
+            System.out.println("player " + p.getPlayerNumber() + " already have rank [" + p.getRank() + "]");
         }
     }
 
