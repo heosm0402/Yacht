@@ -138,7 +138,7 @@ public class ScoreCalculator {
                 straight[j] += 1;
             }
         }
-        return 0;
+        return 15;
     }
 
     private int calcBigStraight() {
