@@ -44,9 +44,14 @@ public class GameController {
         }
     }
 
-    private int getTotalScore(NewPlayer p) {
+    private int getTotalScore(NewPlayer player) {
+        int totalScore = 0;
+            for (String strKey : player.getScoreTable().keySet()) {
+                totalScore += player.getScoreTable().get(strKey);
 
-        return 0;
+            }
+
+        return totalScore;
     }
 
     private int getSubTotal(NewPlayer player) {
