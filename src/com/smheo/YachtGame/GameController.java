@@ -2,6 +2,7 @@ package com.smheo.YachtGame;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class GameController {
@@ -20,11 +21,11 @@ public class GameController {
             System.out.println("[GAME INFO] ROUND " + this.round);
             p1.turn();
             roundScore = scoreCalculator.calculateScore(p1.getRank(), p1.getDicesArray());
-            System.out.println("score: " + roundScore);
+            setScore(p1, roundScore);
 
             p2.turn();
             roundScore = scoreCalculator.calculateScore(p2.getRank(), p2.getDicesArray());
-            System.out.println("score: " + roundScore);
+            setScore(p2, roundScore);
 
             System.out.println("[GAME INFO] TOTAL SCORE P1:" + getTotalScore(p1) +
                     " | P2:" + getTotalScore(p2));
@@ -33,8 +34,26 @@ public class GameController {
         }
     }
 
-    private void setScore(NewPlayer p) {
+    private void setScore(NewPlayer p, int score) {
 
+        // TODO: Refactoring
+        if (p.getPlayerNumber() == 1) {
+            // TODO: change to while loop (while !hashmap.containsKey(rank))
+            if (!(this.score_p1.containsKey(p.getRank()))) {
+                score_p1.put(p.getRank(), score);
+                System.out.println("player " + p.getPlayerNumber() + " score: " + roundScore);
+            } else {
+                // TODO: rank reselect logic
+                System.out.println("player " + p.getPlayerNumber() + " already have rank" + p.getRank());
+            }
+        } else {
+            if(!(this.score_p2.containsKey(p.getRank()))) {
+                score_p2.put(p.getRank(), score);
+                System.out.println("player " + p.getPlayerNumber() + " score: " + roundScore);
+            } else {
+                System.out.println("player " + p.getPlayerNumber() + " already have rank" + p.getRank());
+            }
+        }
     }
 
     private int getTotalScore(NewPlayer p) {
