@@ -25,7 +25,9 @@ public class NewPlayer {
         return dicesArray;
     }
 
-    public void setDicesArray(int[] dicesArray) {this.dicesArray = dicesArray;}
+    public void setDicesArray(int[] dicesArray) {
+        this.dicesArray = dicesArray;
+    }
 
     public String getRank() {
         return rank;
@@ -105,16 +107,35 @@ public class NewPlayer {
     }
 
     private void selectRank() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("[GAME INFO] Rank list");
-        System.out.println("---------------------------------------------------------------------------------");
-        System.out.println("| ONES(1) | TWOS(2) | THREES(3) | FOURS(4) | FIVES(5) | SIXES(6) | CHOICE(C)    |");
-        System.out.println("---------------------------------------------------------------------------------");
-        System.out.println("| 4ofAKind(FK) | FullHOUSE(FH) | SmallStraight(SS) | BigStraight(BS) | Yacht(Y) |");
-        System.out.println("---------------------------------------------------------------------------------");
-        System.out.print("[SELECT] Rank: ");
-        setRank(sc.nextLine());
+        String chosenRank;
+        String[] toCheckValidRank = {"1", "2", "3", "4", "5", "6", "C", "FK", "FH", "SS", "BS", "Y"};
+        boolean isDuplicatedRank;
+        boolean isValidRank;
 
+        do {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("[GAME INFO] Rank list");
+            System.out.println("---------------------------------------------------------------------------------");
+            System.out.println("| ONES(1) | TWOS(2) | THREES(3) | FOURS(4) | FIVES(5) | SIXES(6) | CHOICE(C)    |");
+            System.out.println("---------------------------------------------------------------------------------");
+            System.out.println("| 4ofAKind(FK) | FullHOUSE(FH) | SmallStraight(SS) | BigStraight(BS) | Yacht(Y) |");
+            System.out.println("---------------------------------------------------------------------------------");
+            System.out.print("[SELECT] Rank: ");
+            chosenRank = sc.nextLine();
+
+            isDuplicatedRank = scoreTable.containsKey(chosenRank);
+            if (isDuplicatedRank) {
+                System.out.println("[GAME INFO] Already chosen rank: " + chosenRank);
+            }
+            isValidRank = Arrays.asList(toCheckValidRank).contains(chosenRank);
+            if (!isValidRank) {
+                System.out.println("[GAME INFO] Invalid rank: " + chosenRank);
+            }
+        } while (isDuplicatedRank || (!isValidRank));
+
+        setRank(chosenRank);
+        ScoreCalculator scoreCalculator = new ScoreCalculator();
+        this.scoreTable.put(getRank(), scoreCalculator.calculateScore(getRank(), getDicesArray()));
     }
 
     private void showDicesArray() {
