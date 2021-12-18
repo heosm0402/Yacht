@@ -33,7 +33,6 @@ public class GameController {
             p.getScoreTable().put(p.getRank(), score);
             System.out.println("player " + p.getPlayerNumber() + " score: " + roundScore);
         } else {
-            // TODO: rank reselect logic
             System.out.println("player " + p.getPlayerNumber() + " already have rank [" + p.getRank() + "]");
         }
     }
