@@ -134,8 +134,6 @@ public class NewPlayer {
         } while (isDuplicatedRank || (!isValidRank));
 
         setRank(chosenRank);
-        ScoreCalculator scoreCalculator = new ScoreCalculator();
-        this.scoreTable.put(getRank(), scoreCalculator.calculateScore(getRank(), getDicesArray()));
     }
 
     private void showDicesArray() {
