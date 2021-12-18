@@ -24,6 +24,7 @@ public class GameController {
             showRoundSummary(p1, p2);
             this.round += 1;
         }
+        gameResult(p1, p2);
     }
 
     private void setScore(NewPlayer p, int score) {
@@ -59,5 +60,15 @@ public class GameController {
         System.out.println("Player 2 Score Board | " + p2.getScoreTable());
         System.out.println("================================================================================");
 
+    }
+
+    private void gameResult(NewPlayer p1, NewPlayer p2) {
+        if (getTotalScore(p1) > getTotalScore(p2)) {
+            System.out.println("Player 1 win");
+        } else if (getTotalScore(p1) < getTotalScore(p2)) {
+            System.out.println("Player 2 win");
+        } else {
+            System.out.println("Wow draw game");
+        }
     }
 }
