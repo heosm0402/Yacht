@@ -21,11 +21,7 @@ public class GameController {
             roundScore = scoreCalculator.calculateScore(p2.getRank(), p2.getDicesArray());
             setScore(p2, roundScore);
 
-            System.out.println("===================================[ROUND " + this.round +  "]====================================");
-            System.out.println("TOTAL SCORE | Player 1: " + getTotalScore(p1) + " Player 2: " + getTotalScore(p2));
-            System.out.println("Player 1 Score Board | " + p1.getScoreTable());
-            System.out.println("Player 2 Score Board | " + p2.getScoreTable());
-            System.out.println("================================================================================");
+            showRoundSummary(p1, p2);
             this.round += 1;
         }
     }
@@ -57,7 +53,12 @@ public class GameController {
         return 0;
     }
 
-    private void showRoundSummary() {
+    private void showRoundSummary(NewPlayer p1, NewPlayer p2) {
+        System.out.println("===================================[ROUND " + this.round +  "]====================================");
+        System.out.println("TOTAL SCORE | Player 1: " + getTotalScore(p1) + " Player 2: " + getTotalScore(p2));
+        System.out.println("Player 1 Score Board | " + p1.getScoreTable());
+        System.out.println("Player 2 Score Board | " + p2.getScoreTable());
+        System.out.println("================================================================================");
 
     }
 }
