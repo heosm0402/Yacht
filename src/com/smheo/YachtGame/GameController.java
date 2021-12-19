@@ -5,9 +5,9 @@ public class GameController {
     private int round = 1;
     private int roundScore = 0;
     public void run() {
-        NewPlayer p1 = new NewPlayer();
+        GamePlayer p1 = new GamePlayer();
         p1.setPlayerNumber(1);
-        NewPlayer p2 = new NewPlayer();
+        GamePlayer p2 = new GamePlayer();
         p2.setPlayerNumber(2);
         ScoreCalculator scoreCalculator = new ScoreCalculator();
 
@@ -28,7 +28,7 @@ public class GameController {
         gameResult(p1, p2);
     }
 
-    private void setScore(NewPlayer p, int score) {
+    private void setScore(GamePlayer p, int score) {
 
         // TODO: change to while loop (while !hashmap.containsKey(rank))
         if (!(p.getScoreTable().containsKey(p.getRank()))) {
@@ -39,43 +39,43 @@ public class GameController {
         }
     }
 
-    private int getTotalScore(NewPlayer player) {
+    private int getTotalScore(GamePlayer gamePlayer) {
         int totalScore = 0;
-            for (String strKey : player.getScoreTable().keySet()) {
-                totalScore += player.getScoreTable().get(strKey);
+            for (String strKey : gamePlayer.getScoreTable().keySet()) {
+                totalScore += gamePlayer.getScoreTable().get(strKey);
 
             }
 
         return totalScore;
     }
 
-    private int getSubTotal(NewPlayer player) {
+    private int getSubTotal(GamePlayer gamePlayer) {
         int subTotal = 0;
         for (int i = 0; i < 6; i++) {
-            if (player.getScoreTable().containsKey(Integer.toString(i+1))){
-                subTotal += player.getScoreTable().get(Integer.toString(i+1));
+            if (gamePlayer.getScoreTable().containsKey(Integer.toString(i+1))){
+                subTotal += gamePlayer.getScoreTable().get(Integer.toString(i+1));
             }
         }
 
         if (subTotal >= 63) {
-            player.setRank("B");
-            setScore(player, 35);
+            gamePlayer.setRank("B");
+            setScore(gamePlayer, 35);
         }
         return subTotal;
     }
 
-    private int isHaveBonus(NewPlayer player) {
-        return player.getScoreTable().getOrDefault("B", 0);
+    private int isHaveBonus(GamePlayer gamePlayer) {
+        return gamePlayer.getScoreTable().getOrDefault("B", 0);
     }
 
-    private void showRoundSummary(NewPlayer p1, NewPlayer p2) {
+    private void showRoundSummary(GamePlayer p1, GamePlayer p2) {
         System.out.println("=============================================================== [" + "\t\t" + "ROUND " + "\t" + this.round + "\t\t" + " SUMMARY"  + "\t\t" + "] =============================================================");
         System.out.println("PLAYER 1" + "\t" + " | TOTAL SCORE " + getTotalScore(p1) + "\t" + " | " + "\t" + "SCORE BOARD "+ p1.roundSummary() + "\t\t" + " | " + "\t\t" + "SUBTOTAL " + getSubTotal(p1) + "/63" + "\t" + " | " + "\t" + "BONUS " + isHaveBonus(p1));
         System.out.println("PLAYER 2" + "\t" + " | TOTAL SCORE " + getTotalScore(p2) + "\t" + " | " + "\t" + "SCORE BOARD "+ p2.roundSummary() + "\t\t" + " | " + "\t\t" + "SUBTOTAL " + getSubTotal(p2) + "/63" + "\t" + " | " + "\t" + "BONUS " + isHaveBonus(p2));
         System.out.println("=======================================================================================================================================================================");
     }
 
-    private void gameResult(NewPlayer p1, NewPlayer p2) {
+    private void gameResult(GamePlayer p1, GamePlayer p2) {
         if (getTotalScore(p1) > getTotalScore(p2)) {
             System.out.println("Player 1 win");
         } else if (getTotalScore(p1) < getTotalScore(p2)) {

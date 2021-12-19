@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.LinkedHashMap;
 
-public class NewPlayer {
+public class GamePlayer {
     private int playerNumber = 0;
     private int[] dicesArray = {0, 0, 0, 0, 0};
     private int rollDiceCount = 0;
