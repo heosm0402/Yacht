@@ -2,7 +2,7 @@ package com.smheo.YachtGame;
 
 
 public class GameController {
-    private int round = 0;
+    private int round = 1;
     private int roundScore = 0;
     public void run() {
         NewPlayer p1 = new NewPlayer();
@@ -11,8 +11,9 @@ public class GameController {
         p2.setPlayerNumber(2);
         ScoreCalculator scoreCalculator = new ScoreCalculator();
 
-        while (this.round < 12) {
-            System.out.println("[GAME INFO] ROUND " + this.round);
+        while (this.round < 13) {
+            System.out.println();
+            System.out.println("========================================================================== [" + "\t\t" + "ROUND " + "\t" + this.round + "\t\t" + " ] ================================================================");
             p1.turn();
             roundScore = scoreCalculator.calculateScore(p1.getRank(), p1.getDicesArray());
             setScore(p1, roundScore);
