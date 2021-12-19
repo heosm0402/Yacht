@@ -101,7 +101,7 @@ public class NewPlayer {
         int choice;
         do {
             Scanner sc = new Scanner(System.in);
-            System.out.print("[SELECT] Go(1) or Stop(2): ");
+            System.out.print("[SELECT] GO(1) or STOP(2): ");
             choice = sc.nextInt();
         } while (!(choice == 1 || choice == 2));
         return choice;
@@ -115,22 +115,22 @@ public class NewPlayer {
 
         do {
             Scanner sc = new Scanner(System.in);
-            System.out.println("[GAME INFO] Rank list");
+            System.out.println("----------------------------------- Rank list------------------------------------");
             System.out.println("---------------------------------------------------------------------------------");
             System.out.println("| ONES(1) | TWOS(2) | THREES(3) | FOURS(4) | FIVES(5) | SIXES(6) | CHOICE(C)    |");
             System.out.println("---------------------------------------------------------------------------------");
             System.out.println("| 4ofAKind(FK) | FullHOUSE(FH) | SmallStraight(SS) | BigStraight(BS) | Yacht(Y) |");
             System.out.println("---------------------------------------------------------------------------------");
-            System.out.print("[SELECT] Rank: ");
+            System.out.print("[SELECT] RANK: ");
             chosenRank = sc.nextLine();
 
             isDuplicatedRank = scoreTable.containsKey(chosenRank);
             if (isDuplicatedRank) {
-                System.out.println("[GAME INFO] Already chosen rank: " + chosenRank);
+                System.out.println("[GAME INFO] PLAYER " + getPlayerNumber() + " ALREADY HAVE RANK [" + chosenRank + "]");
             }
             isValidRank = Arrays.asList(toCheckValidRank).contains(chosenRank);
             if (!isValidRank) {
-                System.out.println("[GAME INFO] Invalid rank: " + chosenRank);
+                System.out.println("[GAME INFO] INVALID RANK: " + chosenRank);
             }
         } while (isDuplicatedRank || (!isValidRank));
 
@@ -138,7 +138,7 @@ public class NewPlayer {
     }
 
     private void showDicesArray() {
-        System.out.println("Dice Array: " + Arrays.toString(dicesArray));
+        System.out.println("DICE: " + Arrays.toString(dicesArray));
     }
 
     private void chooseDiceNumberToSave() {
