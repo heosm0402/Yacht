@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.LinkedHashMap;
 
 public class NewPlayer {
     private int playerNumber = 0;
@@ -154,5 +155,14 @@ public class NewPlayer {
                 this.dicesArray[i] = 0;
             }
         }
+    }
+
+    public Map<String, Integer> roundSummary() {
+        LinkedHashMap<String, Integer> roundScoreSummaryMap = new LinkedHashMap<>();
+        String[] rankType = {"1", "2", "3", "4", "5", "6", "C", "FK", "FH", "SS", "BS", "Y"};
+        for (String rank : rankType) {
+            roundScoreSummaryMap.put(rank, scoreTable.getOrDefault(rank, 0));
+        }
+        return roundScoreSummaryMap;
     }
 }
