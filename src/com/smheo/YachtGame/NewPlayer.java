@@ -175,7 +175,7 @@ public class NewPlayer {
         LinkedHashMap<String, Integer> roundScoreSummaryMap = new LinkedHashMap<>();
         String[] rankType = {"1", "2", "3", "4", "5", "6", "C", "FK", "FH", "SS", "BS", "Y"};
         for (String rank : rankType) {
-            roundScoreSummaryMap.put(rank, scoreTable.getOrDefault(rank, 0));
+            roundScoreSummaryMap.put(rank, scoreTable.getOrDefault(rank, -1));
         }
         return roundScoreSummaryMap;
     }
