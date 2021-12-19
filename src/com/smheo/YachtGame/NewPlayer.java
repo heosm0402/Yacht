@@ -143,13 +143,27 @@ public class NewPlayer {
 
     private void chooseDiceNumberToSave() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("[SELECT] Dice index to Save (1~5, with space): ");
-        setDiceNumberToSave(sc.nextLine());
+        String[] toCheckValidation = {"1", "2", "3", "4", "5"};
+        boolean isNotValidDiceNumber = false;
+        String[] diceNumberArray;
 
-        String[] diceNumberArray = getDiceNumberToSave().split(" ");
+        do {
+            System.out.print("[SELECT] DICE INDEX TO SAVE (1~5, with space): ");
+            setDiceNumberToSave(sc.nextLine());
+            diceNumberArray = getDiceNumberToSave().split(" ");
+
+            for (String diceNumber : diceNumberArray) {
+                if (!Arrays.asList(toCheckValidation).contains(diceNumber)){
+                    isNotValidDiceNumber = true;
+                    System.out.println("[GAME INFO] WRONG DICE NUMBER");
+                } else {
+                    isNotValidDiceNumber = false;
+                }
+            }
+        } while (isNotValidDiceNumber);
 
         for (int i = 0; i < this.dicesArray.length; i++) {
-            if (Arrays.asList(diceNumberArray).contains(Integer.toString(i+1))) {
+            if (Arrays.asList(diceNumberArray).contains(Integer.toString(i + 1))) {
                 continue;
             } else {
                 this.dicesArray[i] = 0;
