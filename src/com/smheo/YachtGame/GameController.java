@@ -33,9 +33,9 @@ public class GameController {
         // TODO: change to while loop (while !hashmap.containsKey(rank))
         if (!(p.getScoreTable().containsKey(p.getRank()))) {
             p.getScoreTable().put(p.getRank(), score);
-            System.out.println("player " + p.getPlayerNumber() + " score: " + roundScore);
+            System.out.println("[GAME INFO] PLAYER " + p.getPlayerNumber() + " SCORE: " + roundScore);
         } else {
-            System.out.println("player " + p.getPlayerNumber() + " already have rank [" + p.getRank() + "]");
+            System.out.println("[GAME INFO] PLAYER " + p.getPlayerNumber() + " ALREADY HAVE RANK [" + p.getRank() + "]");
         }
     }
 
@@ -69,12 +69,10 @@ public class GameController {
     }
 
     private void showRoundSummary(NewPlayer p1, NewPlayer p2) {
-        System.out.println("===================================[ROUND " + this.round +  "]====================================");
-        System.out.println("TOTAL SCORE | Player 1: " + getTotalScore(p1) + " Player 2: " + getTotalScore(p2));
-        System.out.println("Player 1 Score Board | " + p1.getScoreTable());
-        System.out.println("Player 2 Score Board | " + p2.getScoreTable());
-        System.out.println("================================================================================");
-
+        System.out.println("=============================================================== [" + "\t\t" + "ROUND " + "\t" + this.round + "\t\t" + " SUMMARY"  + "\t\t" + "] =============================================================");
+        System.out.println("PLAYER 1" + "\t" + " | TOTAL SCORE " + getTotalScore(p1) + "\t" + " | " + "\t" + "SCORE BOARD "+ p1.roundSummary() + "\t\t" + " | " + "\t\t" + "SUBTOTAL " + getSubTotal(p1) + "/63" + "\t" + " | " + "\t" + "BONUS " + isHaveBonus(p1));
+        System.out.println("PLAYER 2" + "\t" + " | TOTAL SCORE " + getTotalScore(p2) + "\t" + " | " + "\t" + "SCORE BOARD "+ p2.roundSummary() + "\t\t" + " | " + "\t\t" + "SUBTOTAL " + getSubTotal(p2) + "/63" + "\t" + " | " + "\t" + "BONUS " + isHaveBonus(p2));
+        System.out.println("=======================================================================================================================================================================");
     }
 
     private void gameResult(NewPlayer p1, NewPlayer p2) {
