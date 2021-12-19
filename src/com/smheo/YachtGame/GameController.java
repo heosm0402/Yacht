@@ -63,6 +63,10 @@ public class GameController {
         return subTotal;
     }
 
+    private int isHaveBonus(NewPlayer player) {
+        return player.getScoreTable().getOrDefault("B", 0);
+    }
+
     private void showRoundSummary(NewPlayer p1, NewPlayer p2) {
         System.out.println("===================================[ROUND " + this.round +  "]====================================");
         System.out.println("TOTAL SCORE | Player 1: " + getTotalScore(p1) + " Player 2: " + getTotalScore(p2));
