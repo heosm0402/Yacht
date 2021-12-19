@@ -55,6 +55,11 @@ public class GameController {
                 subTotal += player.getScoreTable().get(Integer.toString(i+1));
             }
         }
+
+        if (subTotal >= 63) {
+            player.setRank("B");
+            setScore(player, 35);
+        }
         return subTotal;
     }
 
