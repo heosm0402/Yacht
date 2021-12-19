@@ -49,8 +49,13 @@ public class GameController {
     }
 
     private int getSubTotal(NewPlayer player) {
-
-        return 0;
+        int subTotal = 0;
+        for (int i = 0; i < 6; i++) {
+            if (player.getScoreTable().containsKey(Integer.toString(i+1))){
+                subTotal += player.getScoreTable().get(Integer.toString(i+1));
+            }
+        }
+        return subTotal;
     }
 
     private void showRoundSummary(NewPlayer p1, NewPlayer p2) {
